@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Querryn</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+
+    <header class="header">
+      <img src="assets/logo.svg" alt="Querryn" class="app-logo">
+      <button id="scan-btn" class="btn-primary">Scan page</button>
+    </header>
+
+    <div id="page-card" class="page-card hidden">
+      <div class="page-card-left">
+        <div class="page-card-title" id="page-title"></div>
+        <div class="page-card-domain" id="page-domain"></div>
+        <div class="page-card-tags"   id="page-tags"></div>
+      </div>
+      <div class="grade-badge" id="page-grade"></div>
+    </div>
+
+    <div id="summary" class="summary hidden">
+      <div class="stat-box">
+        <div class="stat-value" id="total-count">0</div>
+        <div class="stat-label">Sources</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value good" id="good-count">0</div>
+        <div class="stat-label">A / B Grade</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value bad" id="bad-count">0</div>
+        <div class="stat-label">D Grade</div>
+      </div>
+    </div>
+
+    <div id="filters" class="filters hidden">
+      <button class="pill active" data-filter="all">All</button>
+      <button class="pill" data-filter="academic">Academic</button>
+      <button class="pill" data-filter="news">News</button>
+      <button class="pill" data-filter="government">Gov</button>
+      <button class="pill" data-filter="blog">Blog</button>
+    </div>
+
+    <div id="select-all-bar" class="select-all-bar hidden">
+      <button id="select-all-btn" class="select-all-btn">Select all</button>
+    </div>
+
+    <div id="source-list" class="source-list hidden"></div>
+
+    <div id="empty-state" class="empty-state">
+      <p>Click <strong>Scan page</strong> to analyse the sources on this page.</p>
+    </div>
+
+    <footer id="footer" class="footer hidden">
+      <span id="selected-count" class="selected-count muted-count">0 selected</span>
+      <div class="export-controls">
+        <select id="cite-format" class="cite-format-select">
+          <option value="plain">Plain text</option>
+          <option value="mla">MLA</option>
+          <option value="apa">APA</option>
+          <option value="chicago">Chicago</option>
+          <option value="bibtex">BibTeX</option>
+        </select>
+        <button id="export-btn" class="btn-secondary" disabled style="opacity:0.5;cursor:not-allowed">Export selected</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="domainLists.js"></script>
+  <script src="scorer.js"></script>
+  <script src="renderer.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
